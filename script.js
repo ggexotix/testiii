@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // ===== BIRTHDAY COUNTDOWN =====
-    const birthday = new Date("2026-02-27T00:00:00").getTime();
+    const birthday = new Date("2025-12-25T00:00:00").getTime();
 
     const countdownEl = document.getElementById("countdown");
     const messageEl = document.getElementById("message");
@@ -88,4 +88,5 @@ setInterval(() => {
     setTimeout(() => {
         heart.remove();
     }, 6000);
+
 }, 300);
