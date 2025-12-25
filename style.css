@@ -97,7 +97,7 @@ button:hover {
     box-sizing: border-box;
     overflow: hidden;
     margin: 0 auto;
-    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+    box-shadow: 0 0 18px rgba(255, 105, 180, 0.6);
 }
 
 .image-box img {
@@ -105,15 +105,14 @@ button:hover {
     height: 100%;
     object-fit: cover;
     border-radius: 14px;
-    transition: opacity 1s ease-in-out;
-    animation: fade 4s infinite;
+    opacity: 1
 }
 
 @keyframes fade {
-    0% { opacity: 0; }
+    0% { opacity: 1; }
     10% { opacity: 1; }
     90% { opacity: 1; }
-    100% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 #caption {
