@@ -15,25 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let slideshowStarted = false;
 
     function updateCountdown() {
-    const now = Date.now();
-    const diff = birthday - now;
+        const now = Date.now();
+        const diff = birthday - now;
 
-    if (diff <= 0) {
-        countdownEl.classList.add("hidden");
-        messageEl.classList.remove("hidden");
-        slideshowEl.classList.remove("hidden");
-        slideshowStarted = true;
-        return;
+        if (diff <= 0) {
+            countdownEl.classList.add("hidden");
+            messageEl.classList.remove("hidden");
+            slideshowEl.classList.remove("hidden");
+            slideshowStarted = true;
+            return;
+        }
+
+        daysEl.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        hoursEl.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        minutesEl.innerText = Math.floor((diff / (1000 * 60)) % 60);
+        secondsEl.innerText = Math.floor((diff / 1000) % 60);
     }
 
-    daysEl.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hoursEl.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    minutesEl.innerText = Math.floor((diff / (1000 * 60)) % 60);
-    secondsEl.innerText = Math.floor((diff / 1000) % 60);
-}
-
-updateCountdown();               // run once immediately
-setInterval(updateCountdown, 1000); // update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     // ===== PHOTO SLIDESHOW =====
     const photos = [
@@ -44,7 +44,7 @@ setInterval(updateCountdown, 1000); // update every second
         { src: "photos/photo5.jpg", text: "Our first beautiful memory ❤️" },
         { src: "photos/photo6.jpeg", text: "You and me forever 💕" },
         { src: "photos/photo7.jpeg", text: "Making memories with you 💖" },
-        { src: "photos/photo8.jpeg", text: "My heart belongs to you 💞" },
+        { src: "photos/photo8.jpeg", text: "My heart belongs to you 💞" }
     ];
 
     let photoIndex = 0;
@@ -60,7 +60,7 @@ setInterval(updateCountdown, 1000); // update every second
 
 });
 
-// ===== MUSIC CONTROL (OUTSIDE DOMContentLoaded) =====
+// ===== MUSIC CONTROL =====
 function playMusic() {
     const music = document.getElementById("music");
     const btn = document.querySelector("button");
@@ -80,7 +80,7 @@ function playMusic() {
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerText = ["💖","💕","💗","💓","💞"][Math.floor(Math.random()*5)];
+    heart.innerText = ["💖","💕","💗","💓","💞"][Math.floor(Math.random() * 5)];
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (16 + Math.random() * 20) + "px";
     document.body.appendChild(heart);
@@ -88,5 +88,4 @@ setInterval(() => {
     setTimeout(() => {
         heart.remove();
     }, 6000);
-
 }, 300);
